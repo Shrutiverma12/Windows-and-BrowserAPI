@@ -1,0 +1,35 @@
+1-localStorage:
+
+Purpose:
+
+localStorage allows developers to store key-value pairs persistently across browser sessions.
+The data stored in localStorage remains available even if the user closes the browser and returns later.
+
+// Storing data in localStorage
+localStorage.setItem('username', 'JohnDoe');
+localStorage.setItem('isAuthenticated', 'true');
+
+// Retrieving data from localStorage
+const username = localStorage.getItem('username');
+const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+console.log(username);  // Output: JohnDoe
+console.log(isAuthenticated);  // Output: true
+
+
+2-sessionStorage:
+Purpose:
+
+sessionStorage provides a similar key-value storage mechanism but is limited to the duration of a session.
+The data stored in sessionStorage is accessible only as long as the browser or tab is open.
+
+// Storing data in sessionStorage
+sessionStorage.setItem('theme', 'dark');
+sessionStorage.setItem('language', 'en');
+
+// Retrieving data from sessionStorage
+const theme = sessionStorage.getItem('theme');
+const language = sessionStorage.getItem('language');
+
+console.log(theme);  // Output: dark
+console.log(language);  // Output: en

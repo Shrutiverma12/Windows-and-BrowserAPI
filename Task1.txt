@@ -1,0 +1,23 @@
+XMLHTTPRequest object is an API which is used for fetching data from the server. XMLHTTPRequest is basically used in Ajax programming. It retrieve any type of data such as json, xml, text etc. It request for data in background and update the page without reloading page on client side. An object of XMLHTTPRequest is used for asynchronous communication between client and server. The $.ajax() method is used for the creation of XMLHTTPRequest object.
+
+
+The $.ajax() does following steps in background:
+
+-Send data from background.
+-Receives the data from the server.
+-Update webpage without reloading the page.
+
+Below we will see how to create XMLHTTPRequest object with $.ajax() method: 
+
+Syntax: 
+var XHR = $.ajax({configs});
+
+// Example showing how XMLHTTPRequest object created
+var XMLO = $.ajax({
+
+	// Our sample URL to make the request 
+	url: 'https://jsonplaceholder.typicode.com/todos/1',
+
+	// type of Request
+	type: "GET"
+});

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Request Example</title>
+  </head>
+  <body>
+    <script>
+      // Function to make AJAX request
+      function makeAjaxRequest(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // Parse JSON response
+            var responseData = JSON.parse(xhr.responseText);
+
+            // Call the provided callback function with the response data
+            callback(responseData);
+          }
+        };
+
+        // Handle network errors
+        xhr.onerror = function () {
+          console.error("Error making the request");
+        };
+
+        // Send the request
+        xhr.send();
+      }
+
+      // Callback function to process the response data
+      function handleResponse(data) {
+        // Extract user names from the response
+        var userNames = data.map(function (user) {
+          return user.name;
+        });
+
+        // Log to the browser console
+        console.log("User Names:", userNames);
+
+        // Display on the page
+        var outputContainer = document.createElement("div");
+        outputContainer.innerHTML =
+          "<h2>User Names:</h2><ul><li>" +
+          userNames.join("</li><li>") +
+          "</li></ul>";
+        document.body.appendChild(outputContainer);
+      }
+
+      // Make the AJAX request to the specified API endpoint
+      makeAjaxRequest(
+        "https://jsonplaceholder.typicode.com/users",
+        handleResponse
+      );
+    </script>
+  </body>
+</html>
